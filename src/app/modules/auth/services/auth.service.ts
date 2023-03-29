@@ -8,7 +8,8 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
 
-  private readonly URL = environment.api
+  private readonly URL = environment.api;
+  
   constructor(private http:HttpClient) { }
 
   sendCredentials(email:string, password:string): Observable<any> {
@@ -16,7 +17,7 @@ export class AuthService {
       email,
       password
     }
-    return this.http.post(`${this.URL}/auth/login`,body)
+    return this.http.post(`${this.URL}/auth/login`,body);
 
   }
 

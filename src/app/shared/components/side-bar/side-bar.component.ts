@@ -9,11 +9,11 @@ import { Router } from '@angular/router';
 })
 export class SideBarComponent implements OnInit {
 
-  mainMenu: {
-    defaultOptions: Array<any>, accessLink: Array<any>
-  } = { defaultOptions: [], accessLink: [] }
-
-  customOptions: Array<any> = []
+  mainMenu: {defaultOptions: Array<any>, accessLink: Array<any>} = 
+  { 
+    defaultOptions: [], accessLink: [] 
+  };
+  customOptions: Array<any> = [];
 
   constructor(private router:Router) { }
 
@@ -35,7 +35,7 @@ export class SideBarComponent implements OnInit {
         router: ['/', 'favorites'],
         query: { hola: 'mundo' }
       }
-    ]
+    ];
 
     this.mainMenu.accessLink = [
       {
@@ -46,7 +46,7 @@ export class SideBarComponent implements OnInit {
         name: 'Canciones que te gustan',
         icon: 'uil-heart-medical'
       }
-    ]
+    ];
 
     this.customOptions = [
       {
@@ -65,7 +65,7 @@ export class SideBarComponent implements OnInit {
         name: 'Mi lista º4',
         router: ['/']
       }
-    ]
+    ];
 
   }
 
@@ -77,7 +77,7 @@ export class SideBarComponent implements OnInit {
         key3:'value3'
       }
     })
-    console.log($event)
+    console.log($event);
   }
 
   

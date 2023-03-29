@@ -10,11 +10,11 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
+
   formLogin:FormGroup=new FormGroup({});
   errorSession:boolean = false;
-  constructor(private authService:AuthService, private cookie:CookieService,  private router: Router) { 
 
-  }
+  constructor(private authService:AuthService, private cookie:CookieService,  private router: Router) { }
 
   ngOnInit(): void {
     this.formLogin = new FormGroup(
@@ -34,22 +34,23 @@ export class LoginPageComponent implements OnInit {
   }
 
   sendLogin(): void{
-    const {email,password} = this.formLogin.value
+    const {email,password} = this.formLogin.value;
     this.authService.sendCredentials(email,password)
     .subscribe({
       next: (responseOk) => {
        
-        console.log('sesion inciada correctamente', responseOk)
+        console.log('sesion inciada correctamente', responseOk);
 
-        const {tokenSession,data} = responseOk
-        this.cookie.set('token',tokenSession, 4,'/')
-        this.router.navigate(['/','tracks'])
+        const {tokenSession,data} = responseOk;
+        this.cookie.set('token',tokenSession, 4,'/');
+        this.router.navigate(['/','tracks']);
 
       },
       error: (e) =>{ 
-        this.errorSession=true 
-        console.log('usuario o password incorrecto')}
-    })
+        this.errorSession=true ;
+        console.log('usuario o password incorrecto');
+      }
+    });
 
   }
 

@@ -21,19 +21,19 @@ export class SessionGuard implements CanActivate {
   checkCookieSession(): boolean {
     try {
 
-      const token = this.cookieServices.check('token')
-      console.log('ok ok ', token)
+      const token = this.cookieServices.check('token');
+      //console.log('ok ok ', token)
       if(token){
-        return true
+        return true;
       }else{
-        this.router.navigate(['/','auth'])
-        return false
+        this.router.navigate(['/','auth']);
+        return false;
       }
       
       
     } catch (error) {
-      console.log('algo sucedio ',error)
-      return false
+      console.log('algo sucedio ',error);
+      return false;
     }
   }
   

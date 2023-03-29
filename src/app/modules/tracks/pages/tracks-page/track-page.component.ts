@@ -11,10 +11,10 @@ import { Subscription } from 'rxjs';
 })
 export class TrackPageComponent implements OnInit, OnDestroy {
 
-tracksTrending:Array<TrackModel> =[]
-tracksRandom:Array<TrackModel> =[]
+  tracksTrending:Array<TrackModel> =[];
+  tracksRandom:Array<TrackModel> =[];
+  listObservers$: Array<Subscription>=[];
 
-listObservers$: Array<Subscription>=[]
   constructor(private trackService:TrackService) { }
   
 
@@ -29,8 +29,8 @@ listObservers$: Array<Subscription>=[]
 
     this.trackService.getAllTracks$()
     .subscribe((response: TrackModel[]) =>{
-      console.log('-----> ',response)
-      this.tracksTrending = response
+      //console.log('-----> ',response);
+      this.tracksTrending = response;
     })
   }
 
@@ -38,8 +38,8 @@ listObservers$: Array<Subscription>=[]
 
     this.trackService.getAllReverse$()
     .subscribe((response: TrackModel[]) =>{
-      console.log('-----> ',response)
-      this.tracksRandom = response
+      //console.log('-----> ',response);
+      this.tracksRandom = response;
     })
   }
 

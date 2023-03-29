@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { TrackModel } from '@core/models/tracks.model';
-import { catchError, map, Observable, of } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 
@@ -9,10 +8,10 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class TrackService {
+
   private readonly URL = environment.api;
 
-  constructor(private httpClient: HttpClient) {
-  }
+  constructor(private httpClient: HttpClient) {}
 
 
   getAllTracks$(): Observable<any> {
@@ -20,8 +19,9 @@ export class TrackService {
     return this.httpClient.get(`${this.URL}/tracks`)
     .pipe(
       map(({data}:any) => {
-        return data
-      }))
+        return data;
+      })
+    );
 
   }
 
@@ -30,10 +30,10 @@ export class TrackService {
     return this.httpClient.get(`${this.URL}/tracks`)
     .pipe(
       map(({data}:any) => {
-        console.log(data)
-        return data.reverse()
+        //console.log(data);
+        return data.reverse();
       })
-    )
+    );
 
   }
 
